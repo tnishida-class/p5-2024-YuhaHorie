@@ -9,7 +9,7 @@ let score = 0; // スコアを管理
 function setup() {
   createCanvas(windowWidth, windowHeight);
   balls = [];
-  generateNewTarget(); // 初期のターゲットを生成
+  generateNewTarget(); // 初期のターゲットを 生成
 }
 
 function draw() {
