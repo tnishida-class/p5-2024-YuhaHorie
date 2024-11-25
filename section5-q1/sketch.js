@@ -7,9 +7,9 @@ function setup(){
   balloon("I love keyakizaka46");
 }
 
-function balloon(t){
+function balloon(t, x, y){
   let w = textWidth(t);
-  let h = textAscent() + textDescent();
+  let h = textAscent(x) + textDescent(y);
   let p = 2;
   fill(0);
   rect(0, 0, w + p * 2, h + p * 2);
