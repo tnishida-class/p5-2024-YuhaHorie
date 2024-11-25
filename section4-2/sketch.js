@@ -23,7 +23,8 @@ function mouseDragged(){
   const dx = mouseX - pmouseX;
   const dy = mouseY - pmouseY;
   if(mag(dx, dy) > 5){
-    const b = { x: mouseX, y: mouseY, size: 20, vx: dx, vy: dy };
+    const size=random(3, 20)
+    const b = { x: mouseX, y: mouseY, size: size, vx: dx, vy: dy };
     balls.push(b);
   }
 }

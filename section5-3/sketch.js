@@ -1,7 +1,7 @@
 // テキスト「関数を作る(2) 結果を戻す関数」～「総仕上げ：カレンダーを描画しよう」
 function setup(){
   createCanvas(200, 200);
-  calendar(2019, 10);
+  calendar(2030, 10);
 
   // isLeapYear の動作確認のため console に出力しています
   for(let i = 2000; i <= 2100; i++){
@@ -15,11 +15,16 @@ function setup(){
 }
 
 function calendar(y, m){
-  let dow = dayOfWeek(y, m, 1);
-  for(let d = 1; d <= daysInMonth(y, m); d++){
-    // BLANK[3] (hint: まずは daysInYear, dayOfWeek を作ろう)
+  let dow = dayOfWeek(y, m, 1); // 月の初日の曜日
+  let days = daysInMonth(y, m); // 月の日数
+  for(let d = 1; d <= days; d++){
+    let x = (dow % 7) * 20 + 20; // 各日のX座標
+    let y = Math.floor(dow / 7) * 20 + 40; // 各日のY座標
+    text(d, x, y);
+    dow++;
   }
 }
+
 
 function isLeapYear(y){
   return (y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0);
@@ -27,6 +32,7 @@ function isLeapYear(y){
 
 function daysInYear(y){
   // BLANK[1]
+  return isLeapYear(y)?366:365;
 }
 
 function daysInMonth(y, m){
@@ -51,6 +57,11 @@ function dayOfYear(y, m, d){
 
 function dayOfWeek(y, m, d){
   // BLANK[2]
+  if(m<3){
+    y--;
+    m+=12;
+  }
+  return(y+Math.floor(y/4)-Math.floor(y/100)+Math.floor(y/400)+Math.floor((13*m+8)/5)+d)%7;
 }
 
 function dayOfWeekAsString(dow){

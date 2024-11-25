@@ -2,7 +2,7 @@
 function setup(){
   createCanvas(120, 120);
   background(255);
-  nofill();
+  noFill();
   for(let i = 0; i < 10; i++){
     let d = (i+1) * 10;
     if(i<5){
